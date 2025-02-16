@@ -1,24 +1,25 @@
- import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   Text,
   SafeAreaView,
   StyleSheet,
   View,
   ActivityIndicator,
-} from 'react-native';
-import { StatusBar } from 'expo-status-bar';
-import AsyncStorage from '@react-native-async-storage/async-storage';
-import Onboarding from './components/Onboarding';
-import HomeScreen from './Screens/HomeScreen';
-import ModelScreen from './Screens/ModelScreen';
-import ArchiveScreen from './Screens/ArchiveScreen';
-import CropUtilsScreen from './Screens/CropUtilsScreen';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { NavigationContainer } from '@react-navigation/native';
-import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import CustomTabBar from './CustomTabBar';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { enableScreens } from 'react-native-screens';
+} from "react-native";
+import { StatusBar } from "expo-status-bar";
+import AsyncStorage from "@react-native-async-storage/async-storage";
+import Onboarding from "./components/Onboarding";
+import HomeScreen from "./Screens/HomeScreen";
+import ModelScreen from "./Screens/ModelScreen";
+import ArchiveScreen from "./Screens/ArchiveScreen";
+import CropUtilsScreen from "./Screens/CropUtilsScreen";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import { NavigationContainer } from "@react-navigation/native";
+import { createBottomTabNavigator } from "@react-navigation/bottom-tabs";
+import CustomTabBar from "./CustomTabBar";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { enableScreens } from "react-native-screens";
+
 enableScreens();
 const Tab = createBottomTabNavigator();
 
@@ -26,7 +27,8 @@ function MyTabs() {
   return (
     <Tab.Navigator
       screenOptions={{ headerShown: false }}
-      tabBar={(props) => <CustomTabBar {...props} />}>
+      tabBar={(props) => <CustomTabBar {...props} />}
+    >
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="barley" component={ModelScreen} />
       <Tab.Screen name="archive" component={ArchiveScreen} />
@@ -54,13 +56,13 @@ export default function App() {
 
   const checkOnboarding = async () => {
     try {
-      const value = await AsyncStorage.getItem('@viewedOnboarding');
+      const value = await AsyncStorage.getItem("@viewedOnboarding");
 
       if (value !== null) {
         setViewedOnboarding(true);
       }
     } catch (err) {
-      console.log('Error @onboarding', err);
+      console.log("Error @onboarding", err);
     } finally {
       setLoading(false);
     }
@@ -68,10 +70,10 @@ export default function App() {
 
   const handleOnboardingCompletion = async () => {
     try {
-      await AsyncStorage.setItem('@viewedOnboarding', 'true');
+      await AsyncStorage.setItem("@viewedOnboarding", "true");
       setViewedOnboarding(true);
     } catch (err) {
-      console.log('Error @onboardingComplete', err);
+      console.log("Error @onboardingComplete", err);
     }
   };
 
@@ -96,7 +98,7 @@ const styles = StyleSheet.create({
   },
   loadingContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
   },
 });

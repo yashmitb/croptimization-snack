@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect } from "react";
 import {
   View,
   Text,
@@ -8,12 +8,12 @@ import {
   SafeAreaView,
   Modal,
   Animated,
-} from 'react-native';
-import { MaterialCommunityIcons } from '@expo/vector-icons';
-import { ThemedButton } from 'react-native-really-awesome-button';
-import AsyncStorage from '@react-native-async-storage/async-storage';
+} from "react-native";
+import { MaterialCommunityIcons } from "@expo/vector-icons";
+import { ThemedButton } from "react-native-really-awesome-button";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
-const themeColors = ['#e6b517', '#1590bd', '#178731', '#0b7d73', '#00bfa6'];
+const themeColors = ["#e6b517", "#1590bd", "#178731", "#0b7d73", "#00bfa6"];
 
 const ArchiveScreen = () => {
   const [reports, setReports] = useState([]);
@@ -24,7 +24,7 @@ const ArchiveScreen = () => {
 
   const fetchReports = async () => {
     try {
-      const storedReports = await AsyncStorage.getItem('@cropReports');
+      const storedReports = await AsyncStorage.getItem("@cropReports");
       const reportsData = storedReports ? JSON.parse(storedReports) : [];
       setReports(reportsData);
 
@@ -33,7 +33,7 @@ const ArchiveScreen = () => {
         console.log(`Report ${index + 1}:`, report.selectedCrops);
       });
     } catch (error) {
-      console.error('Error fetching reports from AsyncStorage:', error);
+      console.error("Error fetching reports from AsyncStorage:", error);
     }
   };
 
@@ -85,7 +85,7 @@ const ArchiveScreen = () => {
   };
 
   const toggleModal = (report) => {
-    console.log('Selected Crops List from dropdown:', report.selectedCrops); // Log the selected crops list
+    console.log("Selected Crops List from dropdown:", report.selectedCrops); // Log the selected crops list
 
     // Assuming report.selectedCrops is an array of IDs
     const selectedCropIDs = report.selectedCrops;
@@ -96,7 +96,7 @@ const ArchiveScreen = () => {
     );
 
     // Log the common crops
-    console.log('Common Crops:', commonCrops);
+    console.log("Common Crops:", commonCrops);
 
     setSelectedReport({ ...report, commonCrops }); // Pass common crops to the selected report
     setModalVisible(true);
@@ -116,7 +116,7 @@ const ArchiveScreen = () => {
               {`${crop.crop}: ${
                 Math.ceil(crop.predicted_yield / 1000)
                   ? Math.ceil(crop.predicted_yield.toFixed(2) / 1000)
-                  : 'N/A'
+                  : "N/A"
               } kg/ha`}
             </Text>
           ))}
@@ -140,11 +140,12 @@ const ArchiveScreen = () => {
                 style={[
                   styles.cropText,
                   isCommon ? styles.commonCropText : null, // Apply different style for common crops
-                ]}>
+                ]}
+              >
                 {`${crop.crop}: ${
                   Math.ceil(crop.predicted_yield / 1000)
                     ? Math.ceil(crop.predicted_yield.toFixed(2) / 1000)
-                    : 'N/A'
+                    : "N/A"
                 }k kg/ha`}
               </Text>
             </View>
@@ -160,38 +161,39 @@ const ArchiveScreen = () => {
         <Text style={styles.titleText}>Croptimization</Text>
         <Text style={styles.subtitleText}>Viewing your reports:</Text>
         <Text style={styles.subText}>
-          1. Tap the{' '}
-          <Text style={{ fontWeight: 'bold' }}>Show All Reports</Text> button on
+          1. Tap the{" "}
+          <Text style={{ fontWeight: "bold" }}>Show All Reports</Text> button on
           this screen to view saved reports
         </Text>
         <Text style={styles.subText}>
           2. Tap any report card to view crop details and predicted yields.
         </Text>
         <Text style={styles.subText}>
-          3.{' '}
-          <Text style={{ fontWeight: 'bold', color: '#e6b517' }}>
+          3.{" "}
+          <Text style={{ fontWeight: "bold", color: "#e6b517" }}>
             Highlighted Crops:
-          </Text>{' '}
-          Crops you selected will appear in{' '}
-          <Text style={{ fontWeight: 'bold', color: '#e6b517' }}>
+          </Text>{" "}
+          Crops you selected will appear in{" "}
+          <Text style={{ fontWeight: "bold", color: "#e6b517" }}>
             bold gold.
           </Text>
         </Text>
         <Text style={styles.subText}>
-          4.{' '}
+          4.{" "}
           <Text
             style={{
-              color: '#1590bd',
-            }}>
-            No Common Crops{' '}
+              color: "#1590bd",
+            }}
+          >
+            No Common Crops{" "}
           </Text>
           : A message will show if there are no common crops
         </Text>
         <Text style={styles.subText}>
-          5. Refreshing Reports: Tap{' '}
-          <Text style={{ fontWeight: 'bold' }}>Hide/Refresh Reports</Text> to
-          reload the latest data, then{' '}
-          <Text style={{ fontWeight: 'bold' }}>Show All Reports</Text> to view
+          5. Refreshing Reports: Tap{" "}
+          <Text style={{ fontWeight: "bold" }}>Hide/Refresh Reports</Text> to
+          reload the latest data, then{" "}
+          <Text style={{ fontWeight: "bold" }}>Show All Reports</Text> to view
           them again.
         </Text>
       </View>
@@ -205,8 +207,9 @@ const ArchiveScreen = () => {
         borderColor="#0a5952"
         backgroundDarker="#0d6e65"
         textColor="white"
-        backgroundProgress="#1590bd">
-        {showReports ? 'Hide/Refresh Reports' : 'Show All Reports'}
+        backgroundProgress="#1590bd"
+      >
+        {showReports ? "Hide/Refresh Reports" : "Show All Reports"}
       </ThemedButton>
 
       {showReports && Array.isArray(reports) && reports.length > 0 && (
@@ -225,13 +228,15 @@ const ArchiveScreen = () => {
                       }),
                     },
                   ],
-                  width: '48%',
+                  width: "48%",
                   marginBottom: 10,
-                  marginHorizontal: '1%',
-                }}>
+                  marginHorizontal: "1%",
+                }}
+              >
                 <TouchableOpacity
                   style={styles.card}
-                  onPress={() => toggleModal(report)}>
+                  onPress={() => toggleModal(report)}
+                >
                   <MaterialCommunityIcons
                     name="file-document"
                     size={50}
@@ -250,7 +255,8 @@ const ArchiveScreen = () => {
         animationType="slide"
         transparent={true}
         visible={modalVisible}
-        onRequestClose={closeModal}>
+        onRequestClose={closeModal}
+      >
         <View style={styles.modalContainer}>
           <View style={styles.modalContent}>
             <Text style={styles.modalTitle}>{`Report Details`}</Text>
@@ -266,7 +272,8 @@ const ArchiveScreen = () => {
               borderColor="#0a5952"
               backgroundDarker="#0d6e65"
               textColor="white"
-              backgroundProgress="#1590bd">
+              backgroundProgress="#1590bd"
+            >
               Close
             </ThemedButton>
           </View>
@@ -279,75 +286,75 @@ const ArchiveScreen = () => {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    alignItems: 'center',
-    backgroundColor: '#f7f7f7',
+    alignItems: "center",
+    backgroundColor: "#f7f7f7",
   },
   textcontainer: {
-    alignItems: 'center',
-    backgroundColor: '#f7f7f7',
-    width: '95%',
+    alignItems: "center",
+    backgroundColor: "#f7f7f7",
+    width: "95%",
   },
   titleText: {
     fontSize: 20,
-    fontWeight: 'bold',
-    textAlign: 'center',
-    width: '100%',
+    fontWeight: "bold",
+    textAlign: "center",
+    width: "100%",
     marginBottom: 20,
   },
   subtitleText: {
     fontSize: 35,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginBottom: 20,
   },
   subText: {
     fontSize: 20,
-    textAlign: 'center',
+    textAlign: "center",
     marginVertical: 5,
   },
   button: {
     borderRadius: 8,
     padding: 10,
-    alignItems: 'center',
+    alignItems: "center",
     marginBottom: 20,
   },
   scrollView: {
     paddingBottom: 20,
   },
   cardsContainer: {
-    flexDirection: 'row',
-    flexWrap: 'wrap',
-    justifyContent: 'space-between',
+    flexDirection: "row",
+    flexWrap: "wrap",
+    justifyContent: "space-between",
   },
   card: {
-    backgroundColor: '#fff',
+    backgroundColor: "#fff",
     borderRadius: 10,
     padding: 20,
     elevation: 5,
-    shadowColor: '#000',
+    shadowColor: "#000",
     shadowOffset: { width: 0, height: 2 },
     shadowOpacity: 0.1,
     shadowRadius: 5,
     borderWidth: 1,
-    borderColor: '#e0e0e0',
+    borderColor: "#e0e0e0",
     minHeight: 150, // Set a minimum height
     flex: 1, // Allow card to grow
-    justifyContent: 'center',
-    alignItems: 'center',
+    justifyContent: "center",
+    alignItems: "center",
     marginHorizontal: 10,
     marginBottom: 20, // Adjusted margin,
     minWidth: 150,
   },
   cardText: {
-    color: '#333',
+    color: "#333",
     fontSize: 18,
-    fontWeight: 'bold',
-    textAlign: 'center',
+    fontWeight: "bold",
+    textAlign: "center",
     marginTop: 10,
   },
   cropsContainer: {
     padding: 10,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
     borderRadius: 8,
     marginTop: 5,
   },
@@ -357,20 +364,20 @@ const styles = StyleSheet.create({
   },
   modalContainer: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+    justifyContent: "center",
+    alignItems: "center",
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
   },
   modalContent: {
-    width: '80%',
+    width: "80%",
     padding: 20,
-    backgroundColor: '#ffffff',
+    backgroundColor: "#ffffff",
     borderRadius: 10,
-    alignItems: 'center',
+    alignItems: "center",
   },
   modalTitle: {
     fontSize: 20,
-    fontWeight: 'bold',
+    fontWeight: "bold",
     marginBottom: 10,
   },
   icon: {
@@ -378,13 +385,13 @@ const styles = StyleSheet.create({
   },
   noCropsText: {
     fontSize: 16,
-    color: '#1590bd', // You can change this to whatever color you prefer
-    textAlign: 'center',
+    color: "#1590bd", // You can change this to whatever color you prefer
+    textAlign: "center",
     marginTop: 10,
   },
   commonCropText: {
-    fontWeight: 'bold',
-    color: '#e6b517', // Highlight color for common crops
+    fontWeight: "bold",
+    color: "#e6b517", // Highlight color for common crops
   },
 });
 
