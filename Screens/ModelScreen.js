@@ -40,7 +40,7 @@ const generateDummyReport = () => {
   };
 };
 
-const ModelScreen = () => {
+const ModelScreen = ({ navigation }) => {
   const [location, setLocation] = useState("");
   const [coordinates, setCoordinates] = useState({ lat: null, lng: null });
   const [weatherData, setWeatherData] = useState(null);
@@ -50,11 +50,21 @@ const ModelScreen = () => {
   const [modalVisible, setModalVisible] = useState(false);
   const [modalMessage, setModalMessage] = useState("");
   const [modalType, setModalType] = useState(""); // 'success' or 'error'
-  const navigation = useNavigation(); // Hook to access navigation
 
   const handleCropSelection = (crops) => {
     setSelectedCrops(crops);
     console.log("Selected Crops: ", crops);
+  };
+  const checkForExistingReport = async () => {
+    const storedReports = await AsyncStorage.getItem("@cropReports");
+    const reports = storedReports ? JSON.parse(storedReports) : [];
+
+    const existingReport = reports.find(
+      (report) =>
+        report.location.toLowerCase() === location.trim().toLowerCase()
+    );
+
+    return existingReport;
   };
 
   const handleSearchAndSubmit = async (release) => {
@@ -63,8 +73,27 @@ const ModelScreen = () => {
       setTimeout(release, 300);
       return;
     }
+    const existingReport = await checkForExistingReport();
+    if (existingReport) {
+      showModal(
+        "error",
+        "A report with this title has already been generated!"
+      );
+      setTimeout(() => {
+        setModalVisible(false);
+        // navigation.navigate("ArchiveScreen", { reports: report }); // Pass the new report
+        navigation.reset({
+          index: 0,
+          routes: [{ name: "archive" }],
+        });
+      }, 2000);
+      setTimeout(release, 300);
+
+      return;
+    }
     setTimeout(release, 3000);
 
+    // Check if a report already exists for the location
     try {
       const response = await fetch(
         `https://api.opencagedata.com/geocode/v1/json?q=${encodeURIComponent(
@@ -127,7 +156,9 @@ const ModelScreen = () => {
 
         const storedReports = await AsyncStorage.getItem("@cropReports");
         const reports = storedReports ? JSON.parse(storedReports) : [];
-        reports.push(report);
+        report.location =
+          report.location.charAt(0).toUpperCase() + report.location.slice(1); // Capitalize the title of the report
+        reports.unshift(report); // Add the new report to the beginning of the list
         await AsyncStorage.setItem("@cropReports", JSON.stringify(reports));
         console.log("report", report);
         // Show success modal after generating the report
@@ -136,7 +167,11 @@ const ModelScreen = () => {
         // Navigate to ArchiveScreen with the new report
         setTimeout(() => {
           setModalVisible(false);
-          navigation.navigate("ArchiveScreen", { reports: report }); // Pass the new report
+          // navigation.navigate("ArchiveScreen", { reports: report }); // Pass the new report
+          navigation.reset({
+            index: 0,
+            routes: [{ name: "archive" }],
+          });
         }, 2000);
       } else {
         setTimeout(release, 300);
