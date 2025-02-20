@@ -2,7 +2,7 @@
   "expo": {
     "name": "Croptimization",
     "slug": "snack-579def9f-a413-45d1-a04c-02aa625e4699",
-    "version": "1.0.2",
+    "version": "1.0.3",
     "orientation": "portrait",
     "icon": "./assets/icon.png",
     "userInterfaceStyle": "light",
