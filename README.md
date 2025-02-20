@@ -16,11 +16,6 @@
 - Guides farmers on the best planting and harvesting times.
 - Adjusts dynamically based on location and environmental changes.
 
-🛠️ **Essential Farming Tools:**
-
-- Offers quick access to useful farming utilities.
-- Includes soil moisture tracking, rainfall analysis, and more.
-
 📊 **Sustainable Insights:**
 
 - Promotes data-driven farming to reduce waste and improve productivity.
@@ -31,9 +26,9 @@
 
 - **Frontend:** React Native (for cross-platform mobile support)
 - **Backend:** Node.js and Express.js
-- **Machine Learning:** Python (TensorFlow, Scikit-learn)
+- **Machine Learning:** Python (TensorFlow, Scikit-learn, Pandas, NumPy)
 - **APIs:** Custom APIs for real-time weather and soil data
-- **Database:** MongoDB (for user data and crop statistics)
+- **Development Environments:** Google Colab for model training, PythonAnywhere for hosting custom APIs
 
 ---
 
@@ -46,26 +41,15 @@ Croptimization is backed by thorough research on agricultural optimization and f
 ## 🌍 Why Croptimization?
 
 - **Personalized over Generic:** Unlike other farming apps, Croptimization tailors its recommendations to each farmer’s unique weather and soil conditions.
-- **All-in-One Platform:** Combines crop planning, planting tips, and essential farm monitoring tools.
 - **Sustainable Agriculture:** Supports smarter farming with less waste and higher yields.
 
 ---
 
 ## 🛠️ Installation
 
-```bash
-# Clone this repository
-git clone https://github.com/yourusername/croptimization.git
+To install and test Croptimization, join our TestFlight beta:
 
-# Navigate to the project folder
-cd croptimization
-
-# Install dependencies
-npm install
-
-# Run the app
-npm start
-```
+[**Install via TestFlight**](https://testflight.apple.com/join/5X2zp16K)
 
 ---
 
@@ -74,7 +58,22 @@ npm start
 1. Open the app and enter your location.
 2. Input basic crop and soil information.
 3. Receive personalized crop recommendations and planting schedules.
-4. Use the app’s tools to monitor weather, soil moisture, and crop health.
+
+---
+
+## 🖼️ App Preview
+
+Here’s a quick look at Croptimization in action!
+
+![Home Screen](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/homeScreen.PNG)
+![Model Screen](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/modelScreen.PNG)
+![Success Popup](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/successPopup.PNG)
+![View Reports Part 2](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/viewReportsPart2.PNG)
+![View Reports](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/vieweports.PNG)
+![Welcome](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/welcome.PNG)
+![Welcome 2](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/welcome2.PNG)
+![Welcome 3](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/welcome3.PNG)
+![Welcome 4](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/welcome4.PNG)
 
 ---
 
@@ -94,9 +93,9 @@ npm start
 
 ---
 
-## 🤝 Contributing
+## 🤝 Feedback
 
-We welcome contributions! Feel free to open issues or pull requests to help improve Croptimization.
+We welcome feedback! Feel free to post feedback and recommendations on the TestFlight app!
 
 ---
 
@@ -108,8 +107,8 @@ We welcome contributions! Feel free to open issues or pull requests to help impr
 
 ## 📬 Contact
 
-For questions or collaborations, reach out at: [Your Email] or connect on [LinkedIn/GitHub].
+For questions or collaborations, reach out at: yashmitb07@gmail.com or connect on [LinkedIn](https://www.linkedin.com/in/yashmitb07/).
 
 ---
 
-**Croptimization — Empowering Farmers, One Crop at a Time. 🌾**
+**Croptimization — Optimizing Crop Yields with the Power of ML. 🌾**
