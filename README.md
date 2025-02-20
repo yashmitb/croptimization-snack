@@ -61,22 +61,6 @@ To install and test Croptimization, join our TestFlight beta:
 
 ---
 
-## 🖼️ App Preview
-
-Here’s a quick look at Croptimization in action!
-
-![Home Screen](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/homeScreen.PNG)
-![Model Screen](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/modelScreen.PNG)
-![Success Popup](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/successPopup.PNG)
-![View Reports Part 2](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/viewReportsPart2.PNG)
-![View Reports](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/vieweports.PNG)
-![Welcome](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/welcome.PNG)
-![Welcome 2](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/welcome2.PNG)
-![Welcome 3](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/welcome3.PNG)
-![Welcome 4](https://raw.githubusercontent.com/yashmitb/croptimizationImages/refs/heads/main/welcome4.PNG)
-
----
-
 ## 🌟 Future Enhancements
 
 ✅ **Plant Identification & Disease Detection:**
