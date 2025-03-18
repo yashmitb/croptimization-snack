@@ -109,7 +109,7 @@ const ModelScreen = ({ navigation }) => {
         console.log("Fetched Longitude: ", lng);
 
         const weatherUrl = `https://yashmitbhaverisetti.pythonanywhere.com/future_weather?latitude=${lat}&longitude=${lng}`;
-
+        console.log(weatherUrl);
         const weatherResponse = await fetch(weatherUrl);
         if (!weatherResponse.ok) {
           setTimeout(release, 300);
@@ -179,7 +179,7 @@ const ModelScreen = ({ navigation }) => {
       }
     } catch (error) {
       console.error("Error:", error);
-      showModal("error", error);
+      showModal("error", error.message || "An unknown error occurred.");
     }
   };
 
@@ -290,7 +290,7 @@ const styles = StyleSheet.create({
     width: "100%",
     color: "#555",
     marginBottom: 10,
-    marginTop: "10%",
+    marginTop: 40,
   },
   searchContainer: {
     flexDirection: "row",

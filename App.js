@@ -32,7 +32,6 @@ function MyTabs() {
       <Tab.Screen name="Home" component={HomeScreen} />
       <Tab.Screen name="barley" component={ModelScreen} />
       <Tab.Screen name="archive" component={ArchiveScreen} />
-      <Tab.Screen name="camera-plus" component={CropUtilsScreen} />
     </Tab.Navigator>
   );
 }

@@ -13,8 +13,8 @@
       "backgroundColor": "#fff"
     },
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "com.hackclub.croptimization"
+      "supportsTablet": false,
+      "bundleIdentifier": "com.app.croptimization"
     },
     "android": {
       "adaptiveIcon": {
